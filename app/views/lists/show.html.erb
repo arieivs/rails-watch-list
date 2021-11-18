@@ -1,6 +1,8 @@
 <main>
+  <%= link_to 'Back', lists_path, class: 'btn btn-outline-secondary m-2' %>
   <div class="container">
-    <h1 class="my-5"><%= @list.name %></h1>
+    <h1 class="mt-2 mb-5"><%= @list.name %></h1>
+    <%= link_to 'Add a movie', new_list_bookmark_path(@list), class: 'btn btn-secondary' %>
     <div class="container">
       <div class="row">
         <% @bookmarks.each do |bookmark| %>
@@ -8,6 +10,7 @@
             <div class="card card-mine">
               <h2><%= bookmark.movie.title %></h2>
               <p><%= bookmark.movie.overview %></p>
+              <p><%= bookmark.comment %></p>
               <% if !bookmark.movie.rating.nil? %>
                 <p><%= bookmark.movie.rating %></p>
               <% end %>

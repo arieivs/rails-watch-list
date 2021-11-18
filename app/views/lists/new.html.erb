@@ -1,6 +1,7 @@
 <main>
+  <%= link_to 'Back', lists_path, class: 'btn btn-outline-secondary m-2' %>
   <div class="container">
-    <h1 class="my-5">New List</h1>
+    <h1 class="mt-2 mb-5">New List</h1>
     <%= simple_form_for @list do |f| %>
       <%= f.input :name %>
       <%= f.submit 'Create', class: 'btn btn-secondary' %>

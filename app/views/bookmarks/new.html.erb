@@ -1,2 +1,11 @@
-<h1>Bookmarks#new</h1>
-<p>Find me in app/views/bookmarks/new.html.erb</p>
+<main>
+  <%= link_to 'Back', list_path(@list), class: 'btn btn-outline-secondary m-2' %>
+  <div class="container">
+    <h1 class="mt-2 mb-5">Add a Movie to <%= @list.name %></h1>
+    <%= simple_form_for [@list, @bookmark] do |f| %>
+      <%= f.association :movie %>
+      <%= f.input :comment %>
+      <%= f.submit 'Add', class: 'btn btn-secondary' %>
+    <% end %>
+  </div>
+</main>
