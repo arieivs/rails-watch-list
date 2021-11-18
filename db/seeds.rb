@@ -16,7 +16,7 @@ puts 'Creating movies...'
 url = 'http://tmdb.lewagon.com/movie/top_rated'
 movies_data = JSON.parse(URI.open(url).read)
 movies_data['results'].slice(0...10).each do |movie|
-  Movie.create(title: movie['title'], overview: movie['overview'], rating: movie['vote_count'], poster_url: "https://image.tmdb.org/t/p/w500#{movie['poster_path']}")
+  Movie.create(title: movie['title'], overview: movie['overview'], rating: movie['vote_average'], poster_url: "https://image.tmdb.org/t/p/w500#{movie['poster_path']}")
 end
 puts "#{Movie.count} movies created!"
 
