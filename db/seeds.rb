@@ -21,9 +21,17 @@ end
 puts "#{Movie.count} movies created!"
 
 puts 'Creating lists...'
-lists_names = ['To watch', 'Classics', 'Comedy', 'Thrillers', 'Children']
-lists_names.each do |list_name|
-  List.create(name: list_name)
+lists_data = [
+  ['To watch', 'https://images.unsplash.com/photo-1559780528-19fc03b3a725?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80'],
+  ['Classics', 'https://images.unsplash.com/photo-1532751203793-812308a10d8e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=346&q=80'],
+  ['Comedy', 'https://images.unsplash.com/photo-1509512693283-8178ed23e04c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=437&q=80'],
+  ['Thrillers', 'https://images.unsplash.com/photo-1523712900580-a5cc2e0112ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'],
+  ['Children', 'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80']]
+lists_data.each do |list_data|
+  list = List.new(name: list_data[0])
+  file = URI.open(list_data[1])
+  list.photo.attach(io: file, filename: 'cover.png', content_type: 'image/png')
+  list.save
 end
 puts "#{List.count} lists created!"
 
