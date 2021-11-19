@@ -7,7 +7,7 @@
         <% @lists.each do |list| %>
           <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
             <%= link_to list_path(list), class:'card-link' do %>
-              <div class="card card-mine card-clickable">
+              <div class="card card-mine card-small card-clickable">
                 <h2><%= list.name %></h2>
               </div>
             <% end %>

@@ -1,13 +1,17 @@
 .card-mine {
+  background-color: white;
   margin-top: 20px;
   margin-bottom: 20px;
-  min-height: 100px;
   padding: 20px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+}
+
+.card-small {
+  min-height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 10px;
-  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
 }
 
 .card-clickable:hover {
@@ -21,3 +25,5 @@
     color: $gray;
   }
 }
+
+
